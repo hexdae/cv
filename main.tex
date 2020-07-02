@@ -1,0 +1,264 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,letterpaper,sans]{moderncv}       % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                           % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+
+\moderncvcolor{blue}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+%\renewcommand{\familydefault}{\sfdefault}        % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+         
+% Use the Euro sign 
+\usepackage{eurosym}
+
+% Hide keywords for searchable text
+\usepackage{graphicx}
+\usepackage{xcolor}
+\def\hide#1{\scalebox{.01}{\color{white}#1}}
+
+% Use import packege
+\usepackage{import}
+
+% adjust the page margins
+\usepackage[scale=0.91]{geometry}
+
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+
+%\setlength{\makecvtitlenamewidth}{10 cm}          % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% Adjust the spacing between title and address
+\makeatletter
+\patchcmd{\makehead}{%search
+    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\%
+    }{%replace
+    \ifthenelse{\equal{\@title}{}}{}{\titlestyle{~|~\@title}}\\[0.10cm]%
+  }{%success
+  }{%failure
+  }
+\makeatother
+
+% Adjust the spacing between address and contact info
+\makeatletter
+\patchcmd{\makehead}{%search
+  \flushmakeheaddetails\@firstmakeheaddetailselementtrue\\\null}{%replace
+  \flushmakeheaddetails\@firstmakeheaddetailselementtrue\par\vspace{-0.3cm}\null%
+  }{%success
+  }{%failure
+  }
+\makeatother
+
+% Adjust the font size for the title
+\renewcommand*{\namefont}{\fontsize{25}{40}\mdseries\upshape}
+\renewcommand*{\titlefont}{\fontsize{25}{40}\mdseries\upshape}
+
+% personal data
+\name{Davide Lorenzo}{Asnaghi}
+\title{M.Eng.}                       % optional, remove / comment the line if not wanted
+\address{New York, NY 11249, USA}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\phone{+1 510 (944) 9620}                           % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                       % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+\email{asnaghi@me.com}                    % optional, remove / comment the line if not wanted
+%\homepage{d-asnaghi.github.io}                   % optional, remove / comment the line if not wanted
+%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+\social[linkedin]{d-asnaghi}
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-15mm}
+
+\small{ }
+        
+     \section{Experience}
+     
+        \vspace{-1pt}
+        \cventry{Aug 2019 -- Present}{Embedded engineer - C/C++ development for a portable ultrasound device}{Butterfly Network}{New York, USA}{}
+        {
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Designed and implemented a robust, RAM to EEPROM based, field update process for the bootloader on a Cypress FX3.
+            \item Wrote proprietary, size-constrained drivers in C and C++ for inertial measurement units such as ICM20948 and MPU9250
+        \end{itemize}
+        } 
+        
+        \vspace{-1pt}
+        \cventry{Mar 2019 -- Aug 2019}{Embedded engineering intern - R\&D for a new product line of Bluetooth smart stethoscopes}{Eko Devices}{Berkeley, USA}{}
+        {
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Responsible for the firmware development of Eko's new smart stethoscope model, based on the Cypress PSoC6 BLE microcontroller.
+            \item Implemented Bluetooth Low Energy (BLE) Over-The-Air (OTA) updates and physiological Digital Signal Processing (DSP) features.
+        \end{itemize}
+        } 
+        
+        \vspace{-1pt}
+        \cventry{Aug 2018 -- Mar 2019}{Graduate student researcher - embedded electronics for physiological data acquisition}{Berkeley Emergent Space Tensegrities Lab.}{Berkeley, USA}{}
+        {
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Lead designer of sensors for physiological data collection, focused on the integration of hardware, firmware, and validation studies.
+            \item Created a customized MicroPython firmware on STM32 to allow easy modification of the core parameters by the rest of the team.
+        \end{itemize}
+        }
+        
+        \vspace{-1pt}
+        \cventry{Sep 2017 -- Jun 2018}{Robotics Institute firmware engineering intern - CAN bus communication and sensor fusion}{DJI}{Hong Kong, HK}{}
+        {
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Developed a modular C library for the control system of four motors robotic platforms, to be deployed in drones and ground robots.
+            \item Designed a sensor-fusion based distance measurement system, using a Kalman filter with time of flight and infrared sensors.
+        \end{itemize}
+        } 
+        
+        \vspace{-1pt}
+        \cventry{Jan 2016 -- Aug 2017}{Firmware engineer - electronics development}{Pluteus S.r.l.s}{Milan, IT}{}
+        {
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Engineering lead for an early stage hardware startup focused on peer-to-peer object sharing based on NFC authentication.
+            \item Designed the device's embedded architecture based on the STM32 platform controlling electromechanical devices and sensors.
+        \end{itemize}
+        } 
+          \vspace{-13pt}
+    
+    \section{Education}
+        
+        \cventry{2018 -- 2019}{Master of Engineering, Biomedical engineering}{University of California, Berkeley}{Berkeley, USA}{\textit{GPA: 3.88}}{
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Graduate researcher at BEST Lab: embedded firmware development for physiological data acquisition and processing (ECG, EMG)
+        \end{itemize}}
+        
+        \vspace{-1pt}
+        
+        \cventry{2017 -- 2018}{Bachelor of Engineering, Electronic Engineering}{The Hong Kong University of Science and Technology (HKUST)}{Hong Kong, HK}{\textit{GPA: 3.85}}{
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Undergraduate researcher at HKUST Robotics institute: embedded engineering for robotics systems, CAN bus communication
+        \end{itemize}}
+        
+        \vspace{-1pt}
+        
+        \cventry{2015 -- 2017}{Bachelor of Science, Biomedical Engineering}{Politecnico di Milano}{Milan, IT}{\textit{GPA: 109/110 (3.96)}}{
+        \vspace{-1pt}
+        \begin{itemize}
+            \item Undergraduate research associate at NECST Lab: FPGA design applied to biomedical science, hardware accelerated image processing
+        \end{itemize}}
+        
+        \vspace{-3pt}
+        \subsection{Publications}
+        \vspace{-3pt}
+        
+            \cventry{2020}{Authors: Georgieu TA, Asnaghi D, Liang A, Agogino AM, ASME - Journal of Medical Devices}{\href{https://doi.org/10.1115/1.4043976}{The Sparthan Three-Dimensional Printed Exo-Glove: A Preliminary Evaluation of Performance}}{Berkeley, USA}{}{}
+        
+            \cventry{2019}{Authors: Wong TH, Asnaghi D, Leung W, International Conference on Engineering Design}{\href{https://doi.org/10.1017/dsi.2019.81}{Mechatronics enabling kit for 3D printed hand prostheses}}{Delft, NL}{}{}
+        
+        % \vspace{-5pt}
+        
+        % \subsection{Awards and Achievements}
+        
+        %     \textbf{Big Ideas, Hardware for Good:} \textit{Modular open source electronic development kit for medical devices, category winner \hspace*{\fill} May 2019}
+        
+            % \textbf{DJI Robomaster:} \textit{Mechatronics design for robotics, international competition in Shenzhen China, first place \hspace*{\fill} Jul 2018}
+            
+            % \textbf{Hack@NECST:} \textit{Heart rate (ECG) signal analysis using deep convolutional neural networks on FPGA, second place \hspace*{\fill} Jul 2017}
+
+           \vspace{-13pt}
+        
+    \section{Projects}
+    
+    \vspace{-2pt}
+        
+        \textbf{Embedded firmware:} \textit{'Project Sparthan: Open source prosthetics development kit'
+        \hspace*{\fill} Jan 2018 - Current}
+        {
+        \begin{itemize}
+            \item Sparthan aims to provide children with responsive, low-cost, 3D printed prosthetic hands controlled by muscles' signals (EMG).
+            \item Created schematics and board layout for custom printed circuit board (PCB) in Altium Designer to reduce the device's footprint.
+            \item Developed a feed-forward neural network architecture in C++ running on STM32 micro-controller for hand gesture classification.
+        \end{itemize}
+        }
+        \vspace{2pt}
+        
+        % \textbf{Embedded firmware:} \textit{'Beyond Hands: 3D printed, application specific prostheses'  
+        % \hspace*{\fill} Sep 2018 - May 2019}
+        % \small{\begin{itemize}
+        %     \item Beyond Hands is an initiative of BEST lab at the University of California Berkeley, aimed at developing prosthetics for musicians.
+        %     \item Designed the firmware for an electronic, PID controlled variable stiffness actuator for intuitively changing the drumming rhythm.
+        % \end{itemize}}
+        
+        % \vspace{2pt}
+        
+        \textbf{Embedded machine learning:} \textit{'An automatic ML-based characterization of lung cancer from  PET and CT'  
+        \hspace*{\fill} Aug 2018 - Oct 2018}
+        \small{\begin{itemize}
+            \item Development of an advanced medical imaging analysis pipeline in collaboration with NECST Lab and Humanitas hospital in Milan.
+            \item Designed an embedded machine learning approach using hardware accelerated classification on FPGA platform.
+            \item Presented results and our python based prototyping framework as a keynote speaker at the Xilinx Design Forum in San Jose (CA).
+        \end{itemize}}
+
+      \vspace{-13pt}
+
+    \section{Skills}
+    
+        \vspace{-2pt}
+        
+        \textbf{Programming languages:} C, C++, Python, Matlab, Arduino, TeX, Verilog, VHDL, git \hfill\textbf{CAD:} Solidworks, Fusion360
+        
+        \vspace{-1pt}
+        
+        \textbf{Languages:} Italian (Native), English (Fluent: TOEFL 117/120), Chinese Mandarin (Basic proficiency, HSK I 192/200)
+        
+        \vspace{-16pt}
+        
+        \hide{data science; convolutional neural network; deep learning; python; pandas; keras; matlab; random forest; extra tree classifier; robotic manipulation; signal processing; microfluidic devices; MEMS; STM32; microcontroller;  HTML; Javascript; }
+    
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}
