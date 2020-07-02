@@ -1,42 +1,25 @@
-%% start of file `template.tex'.
-%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
-%
-% This work may be distributed and/or modified under the
-% conditions of the LaTeX Project Public License version 1.3c,
-% available at http://www.latex-project.org/lppl/.
+%----------------------------------------------------------------------------------
+% LaTeX SETUP
+%----------------------------------------------------------------------------------
+% Document class
+\documentclass[11pt,letterpaper,sans]{moderncv}
 
+% Modern CV themes
+\moderncvstyle{banking}                         % 'casual', 'classic', 'oldstyle', 'banking'
+\moderncvcolor{blue}                            % 'blue', 'orange', 'green', 'red', 'purple', 'grey', 'black'
 
-\documentclass[11pt,letterpaper,sans]{moderncv}       % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+\usepackage[utf8]{inputenc}                     % UTF8 encoding
+\usepackage{eurosym}                            % Use the Euro sign 
+\usepackage{graphicx}                           % Hide keywords for searchable text
+\usepackage{xcolor}                             % Use xcolor
+\usepackage{import}                             % Use import
+\usepackage[scale=0.91]{geometry}               % adjust the page margins
 
-% modern themes
-\moderncvstyle{banking}                           % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-
-\moderncvcolor{blue}                              % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
-
-%\renewcommand{\familydefault}{\sfdefault}        % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
-
-\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
-
-% character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
-         
-% Use the Euro sign 
-\usepackage{eurosym}
-
-% Hide keywords for searchable text
-\usepackage{graphicx}
-\usepackage{xcolor}
-\def\hide#1{\scalebox{.01}{\color{white}#1}}
-
-% Use import packege
-\usepackage{import}
-
-% adjust the page margins
-\usepackage[scale=0.91]{geometry}
-
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-
-%\setlength{\makecvtitlenamewidth}{10 cm}          % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+\nopagenumbers{}                                % No page numbers
+\def\hide#1{\scalebox{.01}{\color{white}#1}}    % Hidden text for keyword scraping
+%\setlength{\hintscolumnwidth}{3cm}             % Change the width of the date column
+%\setlength{\makecvtitlenamewidth}{10 cm}       % Title name width adjustments 
+%\renewcommand{\familydefault}{\sfdefault}      % Use to set the default font
 
 % Adjust the spacing between title and address
 \makeatletter
@@ -63,38 +46,29 @@
 \renewcommand*{\namefont}{\fontsize{25}{40}\mdseries\upshape}
 \renewcommand*{\titlefont}{\fontsize{25}{40}\mdseries\upshape}
 
-% personal data
-\name{Davide Lorenzo}{Asnaghi}
-\title{M.Eng.}                       % optional, remove / comment the line if not wanted
-\address{New York, NY 11249, USA}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
-\phone{+1 510 (944) 9620}                           % optional, remove / comment the line if not wanted
-% \phone[fixed]{01234 123456}                       % optional, remove / comment the line if not wanted
-%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
-\email{asnaghi@me.com}                    % optional, remove / comment the line if not wanted
-%\homepage{d-asnaghi.github.io}                   % optional, remove / comment the line if not wanted
-%\extrainfo{additional information}                 % optional, remove / comment the line if not wanted
-%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
-%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
-\social[linkedin]{d-asnaghi}
-
-% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
-%\makeatletter
-%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
-%\makeatother
-%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
-
-% bibliography with mutiple entries
-%\usepackage{multibib}
-%\newcites{book,misc}{{Books},{Others}}
 %----------------------------------------------------------------------------------
-%            content
+% HEADER
+%----------------------------------------------------------------------------------
+\name{Davide Lorenzo}{Asnaghi}          % Name    
+\title{M.Eng.}                          % Educational title
+\address{New York}{NY, 10280}{USA}      % Address
+\phone{+1 510 (944) 9620}               % [optional] mobile phone
+%\phone[fixed]{01234 123456}            % [optional] fixed phone
+%\phone[fax]{+3~(456)~789~012}          % [optional] fax phone
+\email{asnaghi@me.com}                  % [optional] email
+\homepage{asnaghi.me}                   % [optional] website
+%\extrainfo{additional information}     % [optional] additional info
+%\photo[64pt][0.4pt]{picture}           % [optional] photo (height)(frame thickness)
+%\quote{Some quote}                     % [optional] quote
+\social[linkedin]{d-asnaghi}            % [optional] social profile (website)
+
+%----------------------------------------------------------------------------------
+% CONTENT
 %----------------------------------------------------------------------------------
 \begin{document}
 
-%-----       resume       ---------------------------------------------------------
 \makecvtitle
 \vspace*{-15mm}
-
 \small{ }
         
      \section{Experience}
@@ -157,7 +131,6 @@
         \begin{itemize}
             \item Graduate researcher at BEST Lab: embedded firmware development for physiological data acquisition and processing (ECG, EMG)
         \end{itemize}}
-        
         \vspace{-1pt}
         
         \cventry{2017 -- 2018}{Bachelor of Engineering, Electronic Engineering}{The Hong Kong University of Science and Technology (HKUST)}{Hong Kong, HK}{\textit{GPA: 3.85}}{
@@ -165,7 +138,6 @@
         \begin{itemize}
             \item Undergraduate researcher at HKUST Robotics institute: embedded engineering for robotics systems, CAN bus communication
         \end{itemize}}
-        
         \vspace{-1pt}
         
         \cventry{2015 -- 2017}{Bachelor of Science, Biomedical Engineering}{Politecnico di Milano}{Milan, IT}{\textit{GPA: 109/110 (3.96)}}{
@@ -173,8 +145,8 @@
         \begin{itemize}
             \item Undergraduate research associate at NECST Lab: FPGA design applied to biomedical science, hardware accelerated image processing
         \end{itemize}}
+        \vspace{-1pt}
         
-        \vspace{-3pt}
         \subsection{Publications}
         \vspace{-3pt}
         
@@ -192,10 +164,9 @@
             
             % \textbf{Hack@NECST:} \textit{Heart rate (ECG) signal analysis using deep convolutional neural networks on FPGA, second place \hspace*{\fill} Jul 2017}
 
-           \vspace{-13pt}
+       \vspace{-13pt}
         
     \section{Projects}
-    
     \vspace{-2pt}
         
         \textbf{Embedded firmware:} \textit{'Project Sparthan: Open source prosthetics development kit'
@@ -240,25 +211,6 @@
         
         \vspace{-16pt}
         
-        \hide{data science; convolutional neural network; deep learning; python; pandas; keras; matlab; random forest; extra tree classifier; robotic manipulation; signal processing; microfluidic devices; MEMS; STM32; microcontroller;  HTML; Javascript; }
-    
-
-% Publications from a BibTeX file without multibib
-%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
-%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
-\nocite{*}
-\bibliographystyle{plain}
-\bibliography{publications}                        % 'publications' is the name of a BibTeX file
-
-% Publications from a BibTeX file using the multibib package
-%\section{Publications}
-%\nocitebook{book1,book2}
-%\bibliographystylebook{plain}
-%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
-%\nocitemisc{misc1,misc2,misc3}
-%\bibliographystylemisc{plain}
-%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
-
-%-----       letter       ---------------------------------------------------------
+        \hide{data science; convolutional neural network; deep learning; python; pandas; keras; matlab; random forest; extra tree classifier; robotic manipulation; signal processing; microfluidic devices; MEMS; STM32; microcontroller; WiFi; BLE; HTML; Javascript; React}
 
 \end{document}
